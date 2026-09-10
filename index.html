@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Théo Rollin — Analyste programmeur</title>
-<meta name="description" content="Analyste programmeur. Je conçois et développe des logiciels métier critiques — aujourd'hui sur la gestion transfusionnelle en milieu hospitalier.">
+<title>Théo Rollin — Développeur de logiciels métier</title>
+<meta name="description" content="Je développe des logiciels utilisés tous les jours à l'hôpital et en usine. Aujourd'hui sur le suivi des transfusions sanguines.">
 <meta name="author" content="Théo Rollin">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -283,8 +283,7 @@
     .case { break-inside: avoid; }
     a { text-decoration: none; }
   }
-</style>
-</head>
+</style></head>
 <body>
 
 <a class="skip" href="#contenu">Aller au contenu</a>
@@ -308,14 +307,14 @@
   <div class="intro">
     <div class="wrap">
       <p class="standfirst">Analyste programmeur — Rethel, Ardennes</p>
-      <h1>Je conçois des logiciels métier dont on ne peut pas se passer.</h1>
+      <h1>Je développe des logiciels utilisés tous les jours à l'hôpital et en usine.</h1>
       <p class="lede">
-        Aujourd'hui dans le secteur médical, sur des systèmes de gestion transfusionnelle
-        déployés en CHU, en hôpital et en clinique. Avant cela, trois ans d'informatique
-        industrielle chez un fabricant de menuiseries.
+        Aujourd'hui dans le médical, sur des logiciels qui suivent les transfusions sanguines
+        à l'hôpital et en clinique. Avant cela, trois ans dans l'industrie, chez un fabricant
+        de fenêtres.
       </p>
       <p class="meta">
-        Master Architecture Logicielle — ESGI ·
+        Master en architecture logicielle — ESGI ·
         <a href="mailto:theorollin080@gmail.com">theorollin080@gmail.com</a>
       </p>
     </div>
@@ -329,23 +328,22 @@
       </div>
       <div class="prose">
         <p>
-          J'ai commencé par l'informatique industrielle. Trois ans d'alternance chez un fabricant
-          de fenêtres, à construire et maintenir tout le parc applicatif interne — ERP, GMAO,
-          gestion des stocks, suivi des commandes — en autonomie, en assurant le support des
-          utilisateurs dans la foulée. On apprend vite à écrire du code qui doit tourner
-          le lundi matin.
+          J'ai commencé dans l'industrie. Pendant trois ans, en alternance chez un fabricant de
+          fenêtres, je me suis occupé seul de tous les logiciels de l'entreprise : la gestion des
+          stocks, le suivi de l'entretien des machines, les commandes. Je dépannais aussi mes
+          collègues quand leur informatique ne marchait plus.
         </p>
         <p>
-          Je travaille maintenant sur des logiciels de gestion transfusionnelle. Le domaine est
-          exigeant pour une raison simple : la traçabilité n'y est pas une fonctionnalité parmi
-          d'autres, c'est la contrainte qui dicte l'ensemble des décisions de conception. Chaque
-          poche doit pouvoir être reliée à un patient, à un acte, à un moment précis.
+          Aujourd'hui je travaille dans le médical. Je développe des logiciels qui suivent les
+          transfusions sanguines dans les hôpitaux et les cliniques. Dans ce métier, tout doit
+          être enregistré : on doit pouvoir dire quelle poche de sang a été donnée à quel patient,
+          et à quel moment. C'est cette exigence qui guide tous mes choix techniques.
         </p>
         <p>
-          Mon Master porte sur l'architecture logicielle, et c'est la partie du métier qui
-          m'intéresse le plus : découper un système correctement, décider ce qui doit être séparé
-          et pouvoir dire pourquoi, concevoir un modèle de données qui tiendra dans cinq ans.
-          Les langages, on en change ; ces choix-là, beaucoup moins.
+          J'ai un Master en architecture logicielle. C'est la partie du métier que je préfère :
+          réfléchir à la façon dont un logiciel est organisé, décider ce qu'on sépare et pouvoir
+          expliquer pourquoi, construire une base de données qui tiendra dans le temps. Les
+          langages de programmation changent ; ces choix-là restent.
         </p>
       </div>
     </div>
@@ -361,39 +359,41 @@
       <article class="case">
         <div class="case-grid">
           <dl class="case-meta">
-            <dt>Contexte</dt>
+            <dt>Où</dt>
             <dd>GPI France</dd>
-            <dt>Rôle</dt>
-            <dd>Architecture et développement, seul</dd>
+            <dt>Mon rôle</dt>
+            <dd>Conception et développement, seul</dd>
             <dt>Technique</dt>
             <dd>WebDev, service Windows, HFSQL, API REST</dd>
-            <dt>Période</dt>
+            <dt>Quand</dt>
             <dd>Depuis 2025</dd>
           </dl>
           <div class="prose">
-            <h3>Suivi des constantes patient en transfusion à domicile</h3>
+            <h3>Suivi des patients transfusés à domicile</h3>
             <p>
-              Certains établissements pratiquent la transfusion au domicile du patient. Un
-              infirmier se déplace, et doit relever les constantes à intervalles réguliers pendant
-              toute la durée de l'acte. J'ai conçu et développé seul l'application qui prend en
-              charge ce relevé, de l'architecture au déploiement.
+              Certains établissements transfusent leurs patients chez eux. Un infirmier se déplace
+              et doit relever les constantes du patient à intervalles réguliers, pendant toute la
+              durée de la transfusion. J'ai conçu et développé seul l'application qui sert à ces
+              relevés, du premier plan jusqu'à la mise en service.
             </p>
             <p>
-              Le système est en deux parties. Une application web, utilisée sur le terrain pour la
-              saisie. Et un service Windows qui tourne en arrière-plan et gère le cycle de vie des
-              sessions de transfusion : celles-ci étant déclenchées à distance, elles devaient
-              exister indépendamment de toute fenêtre de navigateur ouverte.
+              Elle est faite de deux parties. D'un côté, un site web que l'infirmier utilise sur
+              place pour saisir les mesures. De l'autre, un programme qui tourne en permanence sur
+              le serveur et garde en mémoire les transfusions en cours. Ce deuxième programme est
+              nécessaire parce que les transfusions sont lancées à distance : elles doivent
+              continuer d'exister même si plus personne n'a de page ouverte.
             </p>
             <p>
-              L'application n'a volontairement aucune authentification propre. Elle n'a pas
-              vocation à être utilisée seule — on y accède depuis le logiciel métier existant, qui
-              délègue l'accès par un jeton à durée de vie très courte, renouvelé automatiquement à
-              chaque changement de page. Une seule source d'identité, et rien à compromettre du
-              côté de l'application.
+              L'application ne demande pas de mot de passe, et c'est voulu. On y entre depuis le
+              logiciel principal, qui accorde un droit d'accès valable une minute seulement,
+              renouvelé tout seul à chaque changement de page. Il n'y a donc qu'un seul endroit où
+              l'identité est vérifiée, et rien à voler du côté de l'application.
             </p>
             <p>
-              J'ai également conçu le schéma de données et l'API REST qui renvoie les relevés vers
-              le logiciel hôte, réconciliés par numéro de patient et numéro de poche.
+              <strong>Les données sont anonymes.</strong> Aucun nom n'est enregistré : les patients
+              et les poches de sang sont désignés par des numéros. J'ai aussi créé la base de
+              données et le lien qui renvoie les mesures vers le logiciel principal, où elles sont
+              rattachées au bon patient et à la bonne poche grâce à ces numéros.
             </p>
           </div>
         </div>
@@ -402,30 +402,30 @@
       <article class="case">
         <div class="case-grid">
           <dl class="case-meta">
-            <dt>Contexte</dt>
+            <dt>Où</dt>
             <dd>GPI France</dd>
-            <dt>Rôle</dt>
-            <dd>Conception fonctionnelle et développement</dd>
+            <dt>Mon rôle</dt>
+            <dd>Conception et développement</dd>
             <dt>Technique</dt>
             <dd>WinDev, HFSQL</dd>
-            <dt>Période</dt>
+            <dt>Quand</dt>
             <dd>Depuis décembre 2024</dd>
           </dl>
           <div class="prose">
-            <h3>Logiciel de gestion transfusionnelle — périmètre international</h3>
+            <h3>Logiciel de suivi des transfusions — version belge</h3>
             <p>
-              Le produit est déployé en CHU, en hôpital et en clinique. J'interviens sur son
-              périmètre belge.
+              Ce logiciel est installé dans des CHU, des hôpitaux et des cliniques. Je m'occupe de
+              sa version belge.
             </p>
             <p>
-              Il suit le parcours du patient de bout en bout : son admission dans l'établissement,
-              l'attribution des poches, la transfusion, jusqu'à sa sortie. Chaque étape est tracée.
+              Il suit tout le passage du patient dans l'établissement : son arrivée, l'attribution
+              des poches de sang, la transfusion, puis sa sortie. Chaque étape est enregistrée.
             </p>
             <p>
-              Porter un tel produit dans un autre pays n'est pas un travail de traduction. Les
-              circuits, les règles de traçabilité et les obligations réglementaires diffèrent, et
-              il faut absorber ces écarts sans faire diverger le socle commun — c'est là que se
-              situe la difficulté réelle.
+              Adapter ce logiciel à un autre pays, ce n'est pas seulement le traduire. Les règles
+              et les obligations légales n'y sont pas les mêmes qu'en France. Il faut donc gérer
+              ces différences sans casser la version commune à tous les pays — et c'est là que se
+              trouve la vraie difficulté.
             </p>
           </div>
         </div>
@@ -434,31 +434,31 @@
       <article class="case">
         <div class="case-grid">
           <dl class="case-meta">
-            <dt>Contexte</dt>
+            <dt>Où</dt>
             <dd>CAP SAMBP</dd>
-            <dt>Rôle</dt>
+            <dt>Mon rôle</dt>
             <dd>Conception et développement</dd>
             <dt>Technique</dt>
-            <dd>WinDev, poste tactile, ERP</dd>
-            <dt>Période</dt>
+            <dd>WinDev, écran tactile, ERP</dd>
+            <dt>Quand</dt>
             <dd>2021 — 2024</dd>
           </dl>
           <div class="prose">
-            <h3>Outil de débit de bois en atelier</h3>
+            <h3>Compteur de bois pour l'atelier</h3>
             <p>
-              CAP SAMBP fabrique des fenêtres en bois et en PVC. Il fallait pouvoir compter le
-              débit de bois de l'usine — par essence, par dimension de planches — sans passer par
-              un poste bureautique.
+              CAP SAMBP fabrique des fenêtres en bois et en PVC. L'entreprise avait besoin de
+              compter le bois découpé dans l'usine — quel type de bois, quelles dimensions de
+              planches — sans avoir à revenir devant un ordinateur de bureau.
             </p>
             <p>
-              J'ai développé une application déployée sur un poste à écran tactile, directement en
-              atelier. L'opérateur sélectionne l'essence et les dimensions ; les données remontent
-              dans l'ERP, qui produit les statistiques d'exploitation.
+              J'ai développé une petite application installée sur un écran tactile, directement
+              dans l'atelier. L'opérateur choisit le type de bois et les dimensions ; les données
+              partent ensuite dans le logiciel de gestion de l'entreprise, qui en tire les
+              statistiques.
             </p>
             <p>
-              Peu de code, mais l'intérêt du projet était ailleurs : une saisie tactile réduite à
-              l'essentiel, utilisable en conditions d'atelier, et branchée sur un système
-              existant.
+              Peu de code, mais l'essentiel était ailleurs : une saisie simple et rapide, utilisable
+              en plein atelier, et reliée à un logiciel déjà en place.
             </p>
           </div>
         </div>
@@ -467,31 +467,32 @@
       <article class="case">
         <div class="case-grid">
           <dl class="case-meta">
-            <dt>Contexte</dt>
+            <dt>Où</dt>
             <dd>Projet personnel</dd>
-            <dt>Rôle</dt>
-            <dd>Architecture et développement</dd>
+            <dt>Mon rôle</dt>
+            <dd>Conception et développement</dd>
             <dt>Technique</dt>
             <dd>Angular, NestJS, PostgreSQL, Tailwind</dd>
-            <dt>Période</dt>
+            <dt>Quand</dt>
             <dd>En cours</dd>
           </dl>
           <div class="prose">
             <h3>OmniSpace <span class="badge">En développement</span></h3>
             <p>
-              Une plateforme unique regroupant GMAO, ERP et système de tickets — les trois outils
-              que j'ai maintenus séparément pendant mon alternance, et dont la séparation coûtait
-              plus cher qu'elle ne rapportait.
+              Un seul outil qui réunit trois choses que j'ai gérées séparément pendant mon
+              alternance : le suivi de l'entretien des machines, la gestion de l'entreprise et les
+              demandes d'assistance. Les faire vivre chacune de leur côté coûtait plus de temps
+              que ça n'en faisait gagner.
             </p>
             <p>
-              Le projet me sert de terrain pour travailler ce que je ne pratique pas au quotidien :
-              une architecture en couches sur une stack web moderne, l'authentification, le
-              découpage en modules. L'architecture, l'authentification et le module de tickets sont
-              en place.
+              Ce projet me sert à m'exercer sur ce que je ne pratique pas au travail : organiser un
+              logiciel en couches avec des outils web récents, gérer la connexion des utilisateurs,
+              découper le code en modules. La structure, la connexion et la partie demandes
+              d'assistance fonctionnent déjà.
             </p>
             <div class="links">
               <a href="https://gitlab.com/theorollin080/omnispace" target="_blank" rel="noopener">Code source sur GitLab</a>
-              <a href="http://34.155.57.197/" target="_blank" rel="noopener">Démonstration</a>
+              <a href="http://34.155.57.197/" target="_blank" rel="noopener">Essayer l'application</a>
             </div>
           </div>
         </div>
@@ -516,9 +517,9 @@
             <p class="where">GPI France</p>
             <p class="when">Décembre 2024 — aujourd'hui</p>
             <p class="detail">
-              Logiciels de gestion transfusionnelle déployés en milieu hospitalier. Conception et
-              développement en autonomie d'une solution de suivi des constantes patient ;
-              développement du périmètre international du produit.
+              Logiciels de suivi des transfusions sanguines, installés dans des hôpitaux et des
+              cliniques. J'ai conçu et développé seul une application de relevé des constantes des
+              patients, et je m'occupe de la version belge du logiciel principal.
             </p>
           </div>
 
@@ -527,19 +528,19 @@
             <p class="where">CAP SAMBP, Charleville-Mézières</p>
             <p class="when">Septembre 2021 — septembre 2024</p>
             <p class="detail">
-              Parc applicatif interne d'un fabricant de fenêtres bois et PVC : ERP, GMAO, gestion
-              des stocks, suivi des commandes. Outil de débit de bois en atelier. Support
-              informatique de l'entreprise.
+              Tous les logiciels internes d'un fabricant de fenêtres en bois et PVC : gestion de
+              l'entreprise, entretien des machines, stocks, commandes. Compteur de bois pour
+              l'atelier. Dépannage informatique des collègues.
             </p>
           </div>
 
           <div class="entry">
-            <p class="role">Stage — administration systèmes et réseaux</p>
+            <p class="role">Stage — systèmes et réseaux</p>
             <p class="where">Lycée agricole de Rethel</p>
             <p class="when">2019 — 4 semaines</p>
             <p class="detail">
-              Refonte de l'infrastructure serveur sous pfSense : plan d'adressage, sous-réseaux,
-              configuration des switches. Mise en place d'un VPN, d'un proxy et d'un annuaire
+              Remise à plat des serveurs de l'établissement avec pfSense : découpage du réseau,
+              configuration des switches. Installation d'un VPN, d'un proxy et d'un annuaire
               Active Directory.
             </p>
           </div>
@@ -549,13 +550,13 @@
           <h3>Formation</h3>
 
           <div class="entry">
-            <p class="role">Master Architecture Logicielle</p>
+            <p class="role">Master en architecture logicielle</p>
             <p class="where">ESGI</p>
             <p class="when">2022 — 2024</p>
           </div>
 
           <div class="entry">
-            <p class="role">Bachelor Architecture Logicielle</p>
+            <p class="role">Bachelor en architecture logicielle</p>
             <p class="where">ESGI</p>
             <p class="when">2022</p>
           </div>
@@ -586,13 +587,13 @@
       <div class="skills">
 
         <div>
-          <h3>Architecture &amp; méthodes</h3>
+          <h3>Conception</h3>
           <ul>
             <li>Architecture en couches</li>
-            <li>Modélisation de données</li>
+            <li>Conception de bases de données</li>
             <li>API REST</li>
-            <li>Clean code</li>
-            <li>Sensibilisé au Domain Driven Design</li>
+            <li>Code propre et lisible</li>
+            <li>Notions de Domain Driven Design</li>
           </ul>
         </div>
 
@@ -608,12 +609,12 @@
         </div>
 
         <div>
-          <h3>Plateformes &amp; outils</h3>
+          <h3>Outils</h3>
           <ul>
             <li>WinDev / WebDev</li>
             <li>HFSQL, PostgreSQL</li>
-            <li>Spring Boot</li>
-            <li>Angular, React</li>
+            <li>Spring Boot, Angular, React</li>
+            <li>Jira, Confluence</li>
             <li>GDS, Git</li>
           </ul>
         </div>
@@ -624,7 +625,7 @@
             <li>Français — C2</li>
             <li>Anglais — B2</li>
           </ul>
-          <h3 style="margin-top:1.6rem">Mobilité</h3>
+          <h3 style="margin-top:1.6rem">Déplacements</h3>
           <ul>
             <li>Permis B</li>
           </ul>
@@ -643,12 +644,11 @@
       <div class="contact-grid">
         <div class="prose">
           <p>
-            Je suis à l'écoute d'opportunités où l'architecture compte autant que le code — et où
-            le métier est assez sérieux pour que les décisions de conception aient des
-            conséquences.
+            Je cherche un poste où la façon dont le logiciel est construit compte autant que le
+            code lui-même, sur des sujets où les choix techniques ont de vraies conséquences.
           </p>
           <p>
-            Le plus simple reste l'e-mail. Je réponds à tout le monde.
+            Le plus simple, c'est l'e-mail. Je réponds à tout le monde.
           </p>
         </div>
         <ul class="contact-list">
