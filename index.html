@@ -1,429 +1,675 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Théo ROLLIN - Portfolio | Analyste Programmeur & Architecte Logiciel</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#3b82f6', // blue-500
-                        secondary: '#1e293b', // slate-800
-                        darkbg: '#0f172a', // slate-900
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Poppins', sans-serif; }
-        .timeline-dot {
-            width: 16px; height: 16px; border-radius: 50%;
-            background-color: #3b82f6; position: absolute; left: -8px; top: 6px;
-            box-shadow: 0 0 0 4px #0f172a;
-        }
-        .timeline-item { border-left: 2px solid #334155; padding-left: 24px; position: relative; padding-bottom: 2rem; }
-        .timeline-item:last-child { padding-bottom: 0; }
-        .skill-tag { transition: all 0.3s ease; }
-        .skill-tag:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.5); border-color: #3b82f6; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Théo Rollin — Analyste programmeur</title>
+<meta name="description" content="Analyste programmeur. Je conçois et développe des logiciels métier critiques — aujourd'hui sur la gestion transfusionnelle en milieu hospitalier.">
+<meta name="author" content="Théo Rollin">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:      #f7f4ed;
+    --paper-alt:  #efeade;
+    --ink:        #1e2a26;
+    --ink-soft:   #5c6a64;
+    --green:      #2e4740;
+    --rule:       #d9d1c1;
+    --accent:     #9c5a3c;
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --measure: 68ch;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: var(--accent); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .skip {
+    position: absolute; left: -9999px;
+    background: var(--ink); color: var(--paper);
+    padding: .6rem 1rem; z-index: 100;
+  }
+  .skip:focus { left: 1rem; top: 1rem; }
+
+  .wrap { width: min(100% - 3rem, 62rem); margin-inline: auto; }
+
+  /* ---------- Header ---------- */
+
+  .masthead {
+    border-bottom: 1px solid var(--rule);
+    padding: 1.4rem 0;
+  }
+  .masthead .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: .8rem 2rem;
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: .01em;
+    text-decoration: none;
+  }
+  .masthead nav ul {
+    list-style: none; display: flex; flex-wrap: wrap;
+    gap: 1.6rem; margin: 0; padding: 0;
+  }
+  .masthead nav a {
+    font-size: .82rem;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+  }
+  .masthead nav a:hover { color: var(--ink); border-bottom-color: var(--accent); }
+
+  /* ---------- Intro ---------- */
+
+  .intro { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5rem); }
+  .intro h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(2.4rem, 7vw, 4.1rem);
+    line-height: 1.08;
+    letter-spacing: -.015em;
+    margin: 0 0 1.6rem;
+    max-width: 20ch;
+  }
+  .intro .lede {
+    font-family: var(--serif);
+    font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+    line-height: 1.55;
+    color: var(--green);
+    max-width: 46ch;
+    margin: 0 0 2rem;
+  }
+  .standfirst {
+    font-size: .8rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.4rem;
+  }
+  .intro .meta {
+    font-size: .93rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .intro .meta a { color: var(--ink); }
+
+  /* ---------- Sections ---------- */
+
+  section { padding: clamp(3rem, 7vw, 5.5rem) 0; border-top: 1px solid var(--rule); }
+  section.tinted { background: var(--paper-alt); }
+
+  .section-head {
+    display: flex; align-items: baseline; gap: 1rem;
+    margin: 0 0 2.8rem;
+  }
+  .section-head h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 3.4vw, 2rem);
+    letter-spacing: -.01em;
+    margin: 0;
+  }
+  .section-head .num {
+    font-size: .78rem;
+    letter-spacing: .12em;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .prose p { max-width: var(--measure); margin: 0 0 1.15rem; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* ---------- Case studies ---------- */
+
+  .case { border-top: 1px solid var(--rule); padding: 2.6rem 0; }
+  .case:first-of-type { border-top: none; padding-top: 0; }
+  .case:last-of-type { padding-bottom: 0; }
+
+  .case-grid { display: grid; gap: 1.8rem; }
+  @media (min-width: 48rem) {
+    .case-grid { grid-template-columns: 14rem 1fr; gap: 3rem; }
+  }
+
+  .case h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 1.25;
+    margin: 0 0 1rem;
+  }
+  .case-meta { margin: 0; font-size: .85rem; line-height: 1.5; }
+  .case-meta dt {
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: .68rem;
+    color: var(--accent);
+    margin-top: .9rem;
+  }
+  .case-meta dt:first-child { margin-top: 0; }
+  .case-meta dd { margin: .15rem 0 0; color: var(--ink-soft); }
+
+  .badge {
+    display: inline-block;
+    font-size: .68rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: .12rem .6rem;
+    vertical-align: .18em;
+    margin-left: .5rem;
+    white-space: nowrap;
+  }
+
+  .links { display: flex; flex-wrap: wrap; gap: 1.4rem; margin-top: 1.4rem; }
+  .links a {
+    font-size: .87rem;
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+  }
+  .links a:hover { border-bottom-color: var(--accent); }
+  .links a::after { content: " \2197"; color: var(--accent); }
+
+  /* ---------- Parcours ---------- */
+
+  .track { display: grid; gap: 2.6rem; }
+  @media (min-width: 48rem) { .track { grid-template-columns: 1fr 1fr; gap: 3.5rem; } }
+
+  .track h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 1.6rem;
+    padding-bottom: .6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .entry { margin-bottom: 1.7rem; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry .role { font-weight: 600; margin: 0; }
+  .entry .where {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--green);
+    margin: .1rem 0 .35rem;
+  }
+  .entry .when {
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+    margin: 0 0 .45rem;
+  }
+  .entry p.detail { font-size: .92rem; color: var(--ink-soft); margin: 0; max-width: 46ch; }
+
+  /* ---------- Compétences ---------- */
+
+  .skills { display: grid; gap: 1.8rem; }
+  @media (min-width: 40rem) { .skills { grid-template-columns: repeat(2, 1fr); gap: 2.4rem; } }
+  @media (min-width: 62rem) { .skills { grid-template-columns: repeat(4, 1fr); } }
+
+  .skills h3 {
+    font-size: .72rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 .7rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .skills ul { list-style: none; margin: 0; padding: 0; font-size: .93rem; }
+  .skills li { padding: .18rem 0; color: var(--ink-soft); }
+
+  /* ---------- Contact ---------- */
+
+  .contact-grid { display: grid; gap: 2rem; align-items: start; }
+  @media (min-width: 48rem) { .contact-grid { grid-template-columns: 1fr auto; gap: 4rem; } }
+
+  .contact-list { list-style: none; margin: 0; padding: 0; font-size: .95rem; }
+  .contact-list li { padding: .3rem 0; }
+  .contact-list .label {
+    display: inline-block;
+    min-width: 5.5rem;
+    font-size: .68rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 2rem 0 3rem;
+    font-size: .82rem;
+    color: var(--ink-soft);
+  }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: .6rem 2rem; justify-content: space-between; }
+
+  @media print {
+    body { background: #fff; font-size: 11pt; }
+    .masthead nav, .skip { display: none; }
+    section { border-top: 1px solid #ccc; padding: 1.2rem 0; break-inside: avoid; }
+    .case { break-inside: avoid; }
+    a { text-decoration: none; }
+  }
+</style>
 </head>
-<body class="bg-darkbg text-gray-200 antialiased selection:bg-primary selection:text-white flex flex-col min-h-screen">
+<body>
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 bg-darkbg/90 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0 font-bold text-2xl tracking-tighter text-white">
-                    T<span class="text-primary">R</span>.
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#accueil" class="hover:text-primary transition px-3 py-2 rounded-md text-sm font-medium">Accueil</a>
-                        <a href="#a-propos" class="hover:text-primary transition px-3 py-2 rounded-md text-sm font-medium">À Propos</a>
-                        <a href="#experience" class="hover:text-primary transition px-3 py-2 rounded-md text-sm font-medium">Parcours</a>
-                        <a href="#projets" class="hover:text-primary transition px-3 py-2 rounded-md text-sm font-medium">Projets</a>
-                        <a href="#ia" class="bg-primary/10 text-primary border border-primary/30 hover:bg-primary hover:text-white transition px-4 py-2 rounded-full text-sm font-medium"><i class="fa-solid fa-sparkles mr-1"></i> Discuter avec mon IA</a>
-                    </div>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="-mr-2 flex md:hidden">
-                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-slate-800 focus:outline-none">
-                        <i class="fa-solid fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div class="hidden md:hidden bg-slate-800" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
-                <a href="#accueil" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-700">Accueil</a>
-                <a href="#a-propos" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-700">À Propos</a>
-                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-700">Parcours</a>
-                <a href="#projets" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-700">Projets</a>
-                <a href="#ia" class="block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-slate-700"><i class="fa-solid fa-sparkles mr-1"></i> Mon IA</a>
-            </div>
-        </div>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="#">Théo Rollin</a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section id="accueil" class="pt-32 pb-20 md:pt-48 md:pb-32 px-4 flex flex-col items-center justify-center text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-primary font-medium tracking-wide mb-4 uppercase">Bonjour, je suis</h2>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">Théo <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-300">ROLLIN</span></h1>
-            <p class="text-xl md:text-2xl text-slate-400 mb-10 max-w-2xl mx-auto">
-                Analyste Programmeur & futur Architecte Logiciel. Je conçois des systèmes fiables, scalables et orientés métier.
+<main id="contenu">
+
+  <div class="intro">
+    <div class="wrap">
+      <p class="standfirst">Analyste programmeur — Rethel, Ardennes</p>
+      <h1>Je conçois des logiciels métier dont on ne peut pas se passer.</h1>
+      <p class="lede">
+        Aujourd'hui dans le secteur médical, sur des systèmes de gestion transfusionnelle
+        déployés en CHU, en hôpital et en clinique. Avant cela, trois ans d'informatique
+        industrielle chez un fabricant de menuiseries.
+      </p>
+      <p class="meta">
+        Master Architecture Logicielle — ESGI ·
+        <a href="mailto:theorollin080@gmail.com">theorollin080@gmail.com</a>
+      </p>
+    </div>
+  </div>
+
+  <section id="a-propos">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="num">01</span>
+        <h2>Ce que je fais</h2>
+      </div>
+      <div class="prose">
+        <p>
+          J'ai commencé par l'informatique industrielle. Trois ans d'alternance chez un fabricant
+          de fenêtres, à construire et maintenir tout le parc applicatif interne — ERP, GMAO,
+          gestion des stocks, suivi des commandes — en autonomie, en assurant le support des
+          utilisateurs dans la foulée. On apprend vite à écrire du code qui doit tourner
+          le lundi matin.
+        </p>
+        <p>
+          Je travaille maintenant sur des logiciels de gestion transfusionnelle. Le domaine est
+          exigeant pour une raison simple : la traçabilité n'y est pas une fonctionnalité parmi
+          d'autres, c'est la contrainte qui dicte l'ensemble des décisions de conception. Chaque
+          poche doit pouvoir être reliée à un patient, à un acte, à un moment précis.
+        </p>
+        <p>
+          Mon Master porte sur l'architecture logicielle, et c'est la partie du métier qui
+          m'intéresse le plus : découper un système correctement, décider ce qui doit être séparé
+          et pouvoir dire pourquoi, concevoir un modèle de données qui tiendra dans cinq ans.
+          Les langages, on en change ; ces choix-là, beaucoup moins.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets" class="tinted">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="num">02</span>
+        <h2>Projets</h2>
+      </div>
+
+      <article class="case">
+        <div class="case-grid">
+          <dl class="case-meta">
+            <dt>Contexte</dt>
+            <dd>GPI France</dd>
+            <dt>Rôle</dt>
+            <dd>Architecture et développement, seul</dd>
+            <dt>Technique</dt>
+            <dd>WebDev, service Windows, HFSQL, API REST</dd>
+            <dt>Période</dt>
+            <dd>Depuis 2025</dd>
+          </dl>
+          <div class="prose">
+            <h3>Suivi des constantes patient en transfusion à domicile</h3>
+            <p>
+              Certains établissements pratiquent la transfusion au domicile du patient. Un
+              infirmier se déplace, et doit relever les constantes à intervalles réguliers pendant
+              toute la durée de l'acte. J'ai conçu et développé seul l'application qui prend en
+              charge ce relevé, de l'architecture au déploiement.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="#projets" class="bg-primary hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-full transition shadow-[0_0_15px_rgba(59,130,246,0.5)]">
-                    Voir mes projets
-                </a>
-                <a href="#contact" class="bg-transparent border border-slate-600 hover:border-slate-400 text-white font-semibold py-3 px-8 rounded-full transition">
-                    Me contacter
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- À Propos & Compétences -->
-    <section id="a-propos" class="py-20 bg-slate-800/50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
-                        <span class="w-8 h-1 bg-primary mr-4 inline-block"></span> À Propos
-                    </h2>
-                    <p class="text-slate-400 leading-relaxed mb-6 text-justify">
-                        Fort de plus de 4 ans d'expérience dans la conception, le développement et la maintenance d'applications, j'ai évolué sur des environnements techniques variés allant de l'informatique industrielle (ERP, gestion de production) au secteur très exigeant de la santé (systèmes critiques de transfusion sanguine).
-                    </p>
-                    <p class="text-slate-400 leading-relaxed text-justify">
-                        Titulaire d'un Mastère en Architecture des Logiciels (ESGI), je maîtrise le cycle de vie complet du développement. Mon objectif est d'allier mon expertise WinDev/WebDev avec des architectures modernes (API, Microservices, Node.js, Spring Boot) pour piloter des projets d'envergure.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-white mb-6">Mon Arsenal Technique</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-solid fa-code text-primary mr-2"></i>WinDev / WebDev</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-solid fa-database text-primary mr-2"></i>SQL / HFSQL</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-brands fa-java text-primary mr-2"></i>Java / Spring Boot</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-brands fa-node-js text-primary mr-2"></i>Node.js</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-brands fa-angular text-primary mr-2"></i>Angular</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-brands fa-docker text-primary mr-2"></i>Docker</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-solid fa-network-wired text-primary mr-2"></i>Architecture N-Tiers</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-brands fa-jira text-primary mr-2"></i>Jira / Confluence</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Parcours (Expériences & Formation) -->
-    <section id="experience" class="py-20">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-12 flex items-center justify-center text-center">
-                <span class="w-8 h-1 bg-primary mr-4 inline-block"></span> Mon Parcours <span class="w-8 h-1 bg-primary ml-4 inline-block"></span>
-            </h2>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Expériences -->
-                <div>
-                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center"><i class="fa-solid fa-briefcase mr-3"></i> Expériences Pro</h3>
-                    <div class="ml-4">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <h4 class="text-xl font-bold text-white">Analyste Programmeur</h4>
-                            <p class="text-primary font-medium text-sm mb-2">GPI France (Reims) | Déc. 2024 - Présent</p>
-                            <p class="text-slate-400 text-sm">Développement sur un logiciel critique de gestion des transfusions sanguines en milieux hospitaliers (CHU, Cliniques). Création d'une application web pour l'enregistrement des constantes vitales des patients.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <h4 class="text-xl font-bold text-white">Analyste Programmeur (Alternance)</h4>
-                            <p class="text-primary font-medium text-sm mb-2">SAMBP (Charleville-Mézières) | Sept. 2021 - Sept. 2024</p>
-                            <p class="text-slate-400 text-sm">Développement d'un ERP interne et d'applications de gestion des achats. Création d'applications d'informatique industrielle (comptage de débit de bois sur poste usine). Support utilisateur niveau 1.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Formations -->
-                <div>
-                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center"><i class="fa-solid fa-graduation-cap mr-3"></i> Formations</h3>
-                    <div class="ml-4">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <h4 class="text-xl font-bold text-white">Mastère Architecture des Logiciels</h4>
-                            <p class="text-primary font-medium text-sm mb-2">ESGI (Lille) | 2021 - 2024</p>
-                            <p class="text-slate-400 text-sm">Spécialisation en conception logicielle, méthodologies Agile/Scrum, et technologies modernes (Spring Boot, Node.js, Angular, Docker).</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <h4 class="text-xl font-bold text-white">BTS SIO (Option SLAM)</h4>
-                            <p class="text-primary font-medium text-sm mb-2">Lycée Franklin Roosevelt (Reims) | 2019 - 2021</p>
-                            <p class="text-slate-400 text-sm">Apprentissage des bases du développement orienté objet, des bases de données et du développement web (PHP, Java, HTML/CSS).</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <h4 class="text-xl font-bold text-white">BAC PRO SN RISC</h4>
-                            <p class="text-primary font-medium text-sm mb-2">Lycée J.B. Clément (Vivier-au-Court) | 2019</p>
-                            <p class="text-slate-400 text-sm">Bases solides en réseaux informatiques et systèmes communicants.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projets Réalisés -->
-    <section id="projets" class="py-20 bg-slate-800/50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
-                <span class="w-8 h-1 bg-primary mr-4 inline-block"></span> Projets Marquants
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Projet 1 -->
-                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-700 hover:border-primary transition duration-300 group">
-                    <div class="h-48 bg-slate-800 flex items-center justify-center overflow-hidden">
-                        <i class="fa-solid fa-heart-pulse text-6xl text-slate-600 group-hover:scale-110 group-hover:text-red-400 transition duration-500"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Web App - Constantes Vitales</h3>
-                        <p class="text-slate-400 text-sm mb-4">Application web développée pour le recueil en temps réel des constantes des patients lors de transfusions sanguines.</p>
-                        <div class="flex gap-2 text-xs">
-                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">WebDev</span>
-                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">Santé</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 2 -->
-                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-700 hover:border-primary transition duration-300 group">
-                    <div class="h-48 bg-slate-800 flex items-center justify-center overflow-hidden">
-                        <i class="fa-solid fa-industry text-6xl text-slate-600 group-hover:scale-110 group-hover:text-yellow-400 transition duration-500"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Logiciel Usine - Débit de Bois</h3>
-                        <p class="text-slate-400 text-sm mb-4">Conception d'une application déployée sur des postes industriels pour l'automatisation du comptage des matériaux.</p>
-                        <div class="flex gap-2 text-xs">
-                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">WinDev</span>
-                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">Industrie</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 3 (OmniSpace) -->
-                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-700 hover:border-primary transition duration-300 group relative flex flex-col">
-                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg z-10 shadow-md">En cours</div>
-                    <div class="h-48 bg-slate-800 flex items-center justify-center overflow-hidden relative shrink-0">
-                        <i class="fa-solid fa-cubes text-6xl text-slate-600 group-hover:scale-110 group-hover:text-purple-400 transition duration-500"></i>
-                    </div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <h3 class="text-xl font-bold text-white mb-2">OmniSpace</h3>
-                        <p class="text-slate-400 text-sm mb-4">Plateforme unifiée combinant GMAO, ERP et système de support. Développement actif de l'architecture, de l'authentification et du module de tickets.</p>
-                        <div class="flex flex-wrap gap-2 text-xs mb-6">
-                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">Angular</span>
-                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">Tailwind</span>
-                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">NestJS</span>
-                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">PostgreSQL</span>
-                        </div>
-                        <div class="mt-auto flex gap-3">
-                            <a href="https://gitlab.com/theorollin080/omnispace" target="_blank" title="Code source GitLab" class="flex-1 flex justify-center items-center bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white text-sm py-2 px-3 rounded-lg transition duration-300">
-                                <i class="fa-brands fa-gitlab mr-2"></i> GitLab
-                            </a>
-                            <a href="http://34.155.57.197/" target="_blank" title="Tester l'application" class="flex-1 flex justify-center items-center bg-primary hover:bg-blue-600 text-white text-sm py-2 px-3 rounded-lg transition duration-300 shadow-md">
-                                <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Tester
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive AI Section (Gemini API) -->
-    <section id="ia" class="py-24 relative overflow-hidden">
-        <!-- Background decoration -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-darkbg via-blue-900/10 to-darkbg -z-10"></div>
-        
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="inline-flex items-center justify-center p-3 bg-primary/20 rounded-full mb-6 text-primary">
-                <i class="fa-solid fa-microchip text-3xl"></i>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Interrogez mon Clone IA</h2>
-            <p class="text-slate-400 mb-10 max-w-2xl mx-auto">
-                Envie d'en savoir plus sur mon approche de développement, mes compétences ou mes expériences ? Posez vos questions directement à mon assistant virtuel propulsé par l'Intelligence Artificielle.
+            <p>
+              Le système est en deux parties. Une application web, utilisée sur le terrain pour la
+              saisie. Et un service Windows qui tourne en arrière-plan et gère le cycle de vie des
+              sessions de transfusion : celles-ci étant déclenchées à distance, elles devaient
+              exister indépendamment de toute fenêtre de navigateur ouverte.
             </p>
-
-            <!-- Chat Interface -->
-            <div class="bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden text-left flex flex-col h-[500px]">
-                <div class="bg-slate-800 px-6 py-4 border-b border-slate-700 flex items-center justify-between">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white font-bold">
-                            TR
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-white">Assistant Virtuel de Théo</h3>
-                            <p class="text-xs text-green-400 flex items-center"><span class="w-2 h-2 rounded-full bg-green-400 mr-1"></span> En ligne</p>
-                        </div>
-                    </div>
-                    <i class="fa-solid fa-sparkles text-slate-500"></i>
-                </div>
-                
-                <div id="portfolio-chat-messages" class="flex-1 p-6 overflow-y-auto bg-slate-900/50 flex flex-col space-y-4">
-                    <!-- Default Message -->
-                    <div class="flex items-start">
-                        <div class="bg-slate-800 border border-slate-700 text-slate-200 px-4 py-3 rounded-2xl rounded-tl-sm max-w-[80%] shadow-md">
-                            Bonjour ! Je suis l'IA entraînée sur le profil de Théo ROLLIN. Demandez-moi quelles sont ses compétences en bases de données, son expérience avec WinDev ou son parcours scolaire !
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-4 bg-slate-800 border-t border-slate-700">
-                    <div class="relative flex items-center">
-                        <input type="text" id="portfolio-chat-input" placeholder="Posez votre question ici..." class="w-full bg-slate-900 text-white border border-slate-600 rounded-full pl-6 pr-14 py-3 focus:outline-none focus:border-primary transition shadow-inner" onkeypress="if(event.key === 'Enter') sendPortfolioMessage()">
-                        <button onclick="sendPortfolioMessage()" class="absolute right-2 w-10 h-10 bg-primary hover:bg-blue-600 rounded-full text-white flex items-center justify-center transition">
-                            <i class="fa-solid fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <p>
+              L'application n'a volontairement aucune authentification propre. Elle n'a pas
+              vocation à être utilisée seule — on y accède depuis le logiciel métier existant, qui
+              délègue l'accès par un jeton à durée de vie très courte, renouvelé automatiquement à
+              chaque changement de page. Une seule source d'identité, et rien à compromettre du
+              côté de l'application.
+            </p>
+            <p>
+              J'ai également conçu le schéma de données et l'API REST qui renvoie les relevés vers
+              le logiciel hôte, réconciliés par numéro de patient et numéro de poche.
+            </p>
+          </div>
         </div>
-    </section>
+      </article>
 
-    <!-- Footer / Contact -->
-    <footer id="contact" class="bg-slate-900 border-t border-slate-800 py-12 mt-auto">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0 text-center md:text-left">
-                    <h2 class="text-2xl font-bold text-white mb-2">Théo ROLLIN</h2>
-                    <p class="text-slate-400">Analyste Programmeur & Architecte Logiciel</p>
-                </div>
-                <div class="flex flex-col items-center md:items-end space-y-2">
-                    <a href="mailto:theorollin080@gmail.com" class="text-slate-300 hover:text-primary transition flex items-center"><i class="fa-solid fa-envelope mr-2"></i> theorollin080@gmail.com</a>
-                    <p class="text-slate-300 flex items-center"><i class="fa-solid fa-phone mr-2"></i> 07 81 88 19 11</p>
-                    <p class="text-slate-300 flex items-center"><i class="fa-solid fa-location-dot mr-2"></i> Rethel, France</p>
-                </div>
-            </div>
-            <div class="border-t border-slate-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-                <p>&copy; 2026 Théo ROLLIN. Tous droits réservés.</p>
-                <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="https://www.linkedin.com/in/th%C3%A9o-rollin/" class="hover:text-primary transition text-xl"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/Scroude" class="hover:text-primary transition text-xl"><i class="fa-brands fa-github"></i></a>
-                </div>
-            </div>
+      <article class="case">
+        <div class="case-grid">
+          <dl class="case-meta">
+            <dt>Contexte</dt>
+            <dd>GPI France</dd>
+            <dt>Rôle</dt>
+            <dd>Conception fonctionnelle et développement</dd>
+            <dt>Technique</dt>
+            <dd>WinDev, HFSQL</dd>
+            <dt>Période</dt>
+            <dd>Depuis décembre 2024</dd>
+          </dl>
+          <div class="prose">
+            <h3>Logiciel de gestion transfusionnelle — périmètre international</h3>
+            <p>
+              Le produit est déployé en CHU, en hôpital et en clinique. J'interviens sur son
+              périmètre belge.
+            </p>
+            <p>
+              Il suit le parcours du patient de bout en bout : son admission dans l'établissement,
+              l'attribution des poches, la transfusion, jusqu'à sa sortie. Chaque étape est tracée.
+            </p>
+            <p>
+              Porter un tel produit dans un autre pays n'est pas un travail de traduction. Les
+              circuits, les règles de traçabilité et les obligations réglementaires diffèrent, et
+              il faut absorber ces écarts sans faire diverger le socle commun — c'est là que se
+              situe la difficulté réelle.
+            </p>
+          </div>
         </div>
-    </footer>
+      </article>
 
-    <!-- Script AI Gemini -->
-    <script>
-        // Clé API injectée par l'environnement
-        const apiKey = "AIzaSyBXlECYV2vuIc4zzorm7rYotpui_dt2GIk"; 
-        const model = "gemini-flash-latest";
+      <article class="case">
+        <div class="case-grid">
+          <dl class="case-meta">
+            <dt>Contexte</dt>
+            <dd>CAP SAMBP</dd>
+            <dt>Rôle</dt>
+            <dd>Conception et développement</dd>
+            <dt>Technique</dt>
+            <dd>WinDev, poste tactile, ERP</dd>
+            <dt>Période</dt>
+            <dd>2021 — 2024</dd>
+          </dl>
+          <div class="prose">
+            <h3>Outil de débit de bois en atelier</h3>
+            <p>
+              CAP SAMBP fabrique des fenêtres en bois et en PVC. Il fallait pouvoir compter le
+              débit de bois de l'usine — par essence, par dimension de planches — sans passer par
+              un poste bureautique.
+            </p>
+            <p>
+              J'ai développé une application déployée sur un poste à écran tactile, directement en
+              atelier. L'opérateur sélectionne l'essence et les dimensions ; les données remontent
+              dans l'ERP, qui produit les statistiques d'exploitation.
+            </p>
+            <p>
+              Peu de code, mais l'intérêt du projet était ailleurs : une saisie tactile réduite à
+              l'essentiel, utilisable en conditions d'atelier, et branchée sur un système
+              existant.
+            </p>
+          </div>
+        </div>
+      </article>
 
-        async function sendPortfolioMessage() {
-            const inputField = document.getElementById('portfolio-chat-input');
-            const messageText = inputField.value.trim();
-            if (!messageText) return;
+      <article class="case">
+        <div class="case-grid">
+          <dl class="case-meta">
+            <dt>Contexte</dt>
+            <dd>Projet personnel</dd>
+            <dt>Rôle</dt>
+            <dd>Architecture et développement</dd>
+            <dt>Technique</dt>
+            <dd>Angular, NestJS, PostgreSQL, Tailwind</dd>
+            <dt>Période</dt>
+            <dd>En cours</dd>
+          </dl>
+          <div class="prose">
+            <h3>OmniSpace <span class="badge">En développement</span></h3>
+            <p>
+              Une plateforme unique regroupant GMAO, ERP et système de tickets — les trois outils
+              que j'ai maintenus séparément pendant mon alternance, et dont la séparation coûtait
+              plus cher qu'elle ne rapportait.
+            </p>
+            <p>
+              Le projet me sert de terrain pour travailler ce que je ne pratique pas au quotidien :
+              une architecture en couches sur une stack web moderne, l'authentification, le
+              découpage en modules. L'architecture, l'authentification et le module de tickets sont
+              en place.
+            </p>
+            <div class="links">
+              <a href="https://gitlab.com/theorollin080/omnispace" target="_blank" rel="noopener">Code source sur GitLab</a>
+              <a href="http://34.155.57.197/" target="_blank" rel="noopener">Démonstration</a>
+            </div>
+          </div>
+        </div>
+      </article>
 
-            // Afficher le message utilisateur
-            appendPortfolioMessage(messageText, 'user');
-            inputField.value = '';
-            
-            // Afficher l'indicateur de chargement
-            const loadingId = appendPortfolioMessage('<i class="fa-solid fa-circle-notch fa-spin text-primary mr-2"></i> Théo réfléchit...', 'ai', true);
+    </div>
+  </section>
 
-            // Construction du contexte basé sur le profil de Théo
-            const systemInstruction = `Tu es l'assistant virtuel de Théo ROLLIN, présent sur son portfolio.
-Ton but est de répondre aux questions des visiteurs (recruteurs, collaborateurs) pour mettre en valeur son profil.
-Voici les informations sur Théo :
-- Métier : Analyste Programmeur WinDev, évolue vers Chef de projet / Architecte Logiciel.
-- Localisation : Rethel.
-- Contact : theorollin080@gmail.com / 0781881911.
-- Expérience actuelle : Depuis déc 2024 chez GPI France (Reims). Développe un logiciel de gestion des transfusions sanguines (milieu médical, critique) et une app web pour les constantes vitales.
-- Expérience passée : Alternance chez SAMBP (Charleville-Mézières) de 2021 à 2024. Développement ERP interne, logiciel usine comptage de bois, support.
-- Projet personnel actuel : "OmniSpace", un logiciel unifié (GMAO, ERP, Support). Technologies : Angular, Tailwind CSS, NestJS, PostgreSQL.
-- Formation : Mastère & Bachelor Architecture des Logiciels (ESGI Lille, 2024), BTS SIO (Reims, 2021), BAC PRO SN RISC (2019).
-- Compétences techniques : WinDev, WebDev, SQL, HFSQL, Java, PHP, HTML/CSS, JS, Node.js, NestJS, Angular, Tailwind, Spring Boot, Docker, PostgreSQL, architecture Client/Serveur, N-Tiers, Agile/Scrum.
-- Outils : Jira, Confluence, GDS, Git.
-- Langue : Anglais (TOEIC).
-- Soft skills : Esprit d'équipe (sport), veille technologique, aisance relationnelle.
+  <section id="parcours">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="num">03</span>
+        <h2>Parcours</h2>
+      </div>
+      <div class="track">
 
-Règles :
-1. Réponds toujours à la première personne du pluriel (ex: "Nous avons travaillé...") ou à la troisième personne en parlant de Théo ("Théo a développé..."). Ne dis pas "Je suis Théo", dis "Je suis l'IA de Théo".
-2. Sois concis, professionnel et enthousiaste (3 phrases maximum).
-3. Si on te demande quelque chose qui n'est pas dans ces données, dis que tu n'as pas cette information mais invite à le contacter par email.
-4. Formate tes réponses en HTML basique (utilise <b> pour mettre en gras les compétences clés).`;
+        <div>
+          <h3>Expérience</h3>
 
-            const responseText = await callGeminiAPI(messageText, systemInstruction);
-            
-            // Supprimer le loading et afficher la réponse
-            document.getElementById(loadingId).remove();
-            appendPortfolioMessage(responseText, 'ai');
-        }
+          <div class="entry">
+            <p class="role">Analyste / Programmeur</p>
+            <p class="where">GPI France</p>
+            <p class="when">Décembre 2024 — aujourd'hui</p>
+            <p class="detail">
+              Logiciels de gestion transfusionnelle déployés en milieu hospitalier. Conception et
+              développement en autonomie d'une solution de suivi des constantes patient ;
+              développement du périmètre international du produit.
+            </p>
+          </div>
 
-        function appendPortfolioMessage(text, sender, isLoading = false) {
-            const messagesDiv = document.getElementById('portfolio-chat-messages');
-            const msgDiv = document.createElement('div');
-            msgDiv.className = 'flex items-start ' + (sender === 'user' ? 'justify-end' : '');
-            
-            if (isLoading) {
-                msgDiv.id = 'loading-' + Date.now();
-            }
+          <div class="entry">
+            <p class="role">Analyste / Programmeur — alternance</p>
+            <p class="where">CAP SAMBP, Charleville-Mézières</p>
+            <p class="when">Septembre 2021 — septembre 2024</p>
+            <p class="detail">
+              Parc applicatif interne d'un fabricant de fenêtres bois et PVC : ERP, GMAO, gestion
+              des stocks, suivi des commandes. Outil de débit de bois en atelier. Support
+              informatique de l'entreprise.
+            </p>
+          </div>
 
-            const bubbleClass = sender === 'user'
-                ? 'bg-primary text-white px-4 py-3 rounded-2xl rounded-tr-sm max-w-[80%] shadow-md'
-                : 'bg-slate-800 border border-slate-700 text-slate-200 px-4 py-3 rounded-2xl rounded-tl-sm max-w-[80%] shadow-md';
+          <div class="entry">
+            <p class="role">Stage — administration systèmes et réseaux</p>
+            <p class="where">Lycée agricole de Rethel</p>
+            <p class="when">2019 — 4 semaines</p>
+            <p class="detail">
+              Refonte de l'infrastructure serveur sous pfSense : plan d'adressage, sous-réseaux,
+              configuration des switches. Mise en place d'un VPN, d'un proxy et d'un annuaire
+              Active Directory.
+            </p>
+          </div>
+        </div>
 
-            msgDiv.innerHTML = `<div class="${bubbleClass}">${text.replace(/\n/g, '<br>')}</div>`;
-            
-            messagesDiv.appendChild(msgDiv);
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-            
-            return msgDiv.id;
-        }
+        <div>
+          <h3>Formation</h3>
 
-        async function callGeminiAPI(prompt, systemInstruction) {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-            const payload = {
-                contents: [{ parts: [{ text: prompt }] }],
-                systemInstruction: { parts: [{ text: systemInstruction }] },
-                generationConfig: { temperature: 0.7 }
-            };
+          <div class="entry">
+            <p class="role">Master Architecture Logicielle</p>
+            <p class="where">ESGI</p>
+            <p class="when">2022 — 2024</p>
+          </div>
 
-            const delays = [1000, 2000, 4000, 8000, 16000];
-            let attempt = 0;
+          <div class="entry">
+            <p class="role">Bachelor Architecture Logicielle</p>
+            <p class="where">ESGI</p>
+            <p class="when">2022</p>
+          </div>
 
-            while (attempt < 5) {
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: { 
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    });
-                    
-                    if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
-                    
-                    const data = await response.json();
-                    let text = data.candidates?.[0]?.content?.parts?.[0]?.text || "Erreur de réponse.";
-                    // Remplacement basique du markdown ** par du gras HTML
-                    return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-                } catch (error) {
-                    if (attempt >= 4) {
-                        return "Désolé, je rencontre une erreur réseau. Veuillez réessayer plus tard ou contacter Théo directement.";
-                    }
-                    await new Promise(r => setTimeout(r, delays[attempt]));
-                    attempt++;
-                }
-            }
-        }
-    </script>
+          <div class="entry">
+            <p class="role">BTS SIO — option SLAM</p>
+            <p class="where">Lycée Roosevelt, Reims</p>
+            <p class="when">2021</p>
+          </div>
+
+          <div class="entry">
+            <p class="role">BAC Pro SN RISC</p>
+            <p class="where">Lycée Jean-Baptiste Clément</p>
+            <p class="when">2019</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="competences" class="tinted">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="num">04</span>
+        <h2>Compétences</h2>
+      </div>
+      <div class="skills">
+
+        <div>
+          <h3>Architecture &amp; méthodes</h3>
+          <ul>
+            <li>Architecture en couches</li>
+            <li>Modélisation de données</li>
+            <li>API REST</li>
+            <li>Clean code</li>
+            <li>Sensibilisé au Domain Driven Design</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Langages</h3>
+          <ul>
+            <li>WLangage</li>
+            <li>Java</li>
+            <li>C, C++</li>
+            <li>JavaScript, TypeScript</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Plateformes &amp; outils</h3>
+          <ul>
+            <li>WinDev / WebDev</li>
+            <li>HFSQL, PostgreSQL</li>
+            <li>Spring Boot</li>
+            <li>Angular, React</li>
+            <li>GDS, Git</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Langues</h3>
+          <ul>
+            <li>Français — C2</li>
+            <li>Anglais — B2</li>
+          </ul>
+          <h3 style="margin-top:1.6rem">Mobilité</h3>
+          <ul>
+            <li>Permis B</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="num">05</span>
+        <h2>Me contacter</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="prose">
+          <p>
+            Je suis à l'écoute d'opportunités où l'architecture compte autant que le code — et où
+            le métier est assez sérieux pour que les décisions de conception aient des
+            conséquences.
+          </p>
+          <p>
+            Le plus simple reste l'e-mail. Je réponds à tout le monde.
+          </p>
+        </div>
+        <ul class="contact-list">
+          <li><span class="label">E-mail</span> <a href="mailto:theorollin080@gmail.com">theorollin080@gmail.com</a></li>
+          <li><span class="label">LinkedIn</span> <a href="https://www.linkedin.com/in/th%C3%A9o-rollin/" target="_blank" rel="noopener">théo-rollin</a></li>
+          <li><span class="label">GitHub</span> <a href="https://github.com/theorollin080" target="_blank" rel="noopener">theorollin080</a></li>
+          <li><span class="label">GitLab</span> <a href="https://gitlab.com/theorollin080" target="_blank" rel="noopener">theorollin080</a></li>
+          <li><span class="label">Lieu</span> Rethel, Ardennes</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Théo Rollin</span>
+    <span>Écrit à la main. Pas de framework, pas de JavaScript.</span>
+  </div>
+</footer>
+
 </body>
 </html>
